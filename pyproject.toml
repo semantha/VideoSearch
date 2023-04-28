@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "videosearch"
+version = "0.1.0"
+description = ""
+authors = ["TomKaminski <tom.kaminski@thingsthinking.net>"]
+readme = "README.md"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.dependencies]
+python = "^3.11"
+semantha_sdk = "4.6.0"
+streamlit = "1.19.0"
+streamlit-player = "0.1.5"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "1.0.0"
+tqdm = "4.64.1"
+openpyxl = "3.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
