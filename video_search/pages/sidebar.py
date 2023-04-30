@@ -24,6 +24,7 @@ class Sidebar(AbstractPage):
         self.__debug = False
         self.__filter_duplicates = True
         self.__show_videos_below_each_other = True
+        self.__playlists = ["IBM Engineering Lifecycle Management"]
 
     def get_max_matches(self):
         return self.__max_matches
@@ -65,6 +66,14 @@ class Sidebar(AbstractPage):
     def display_page(self):
         with st.sidebar:
             st.header("⚙️ Settings")
+            self.__playlists = st.multiselect(
+                "Playlists",
+                options=[
+                    "IBM Engineering Lifecycle Management",
+                    ],
+                default=["IBM Engineering Lifecycle Management"],
+            )
+
             self.__max_matches = st.slider(
                 "Maximum matches", min_value=1, max_value=10, value=5
             )
@@ -86,12 +95,7 @@ class Sidebar(AbstractPage):
 
     def __debug_information(self):
         st.subheader("🐞 Debug Settings")
-        st.markdown("**ID CG**: _UiiZP2H_")
-        st.markdown("**ID EG**: _igCY5s4_")
         self.__show_horizontal_line()
-        self.__filter_duplicates = st.checkbox(
-            "Filter Duplicates (Videos Matches w/ Same ID and Timestamp)", value=True
-        )
         self.__enter_to_submit = st.checkbox(
             "Enable 'Press Enter to Submit'", value=True
         )

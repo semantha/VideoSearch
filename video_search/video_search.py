@@ -13,6 +13,7 @@ class VideoSearch:
         self.__sidebar = Sidebar(self.__page_manager, demo_config)
         self.__search_page = SearchPage(self.__sidebar, self.__semantha, demo_config)
         self.__pages = [self.__search_page]
+        self.__demo_config = demo_config
 
     def display_page(self):
         self.__configure_page()
@@ -25,13 +26,12 @@ class VideoSearch:
                 with placeholder.container():
                     self.__pages[i].display_page()
 
-    @staticmethod
-    def __configure_page():
+    def __configure_page(self):
         st.config.set_option("theme.primaryColor", "#BE25BE")
         st.set_page_config(
-            page_title="🕵🏻 AI Video Search for Learning Management Systems",
-            page_icon="favicon.png",
-            initial_sidebar_state="collapsed",
+            page_title=self.__demo_config.page_title,
+            page_icon=self.__demo_config.page_icon,
+            initial_sidebar_state=self.__demo_config.initial_sidebar_state,
         )
         # display a title
-        st.header("🕵🏻 AI Video Search for Learning Management Systems")
+        st.header(self.__demo_config.page_title)

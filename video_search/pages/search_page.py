@@ -13,11 +13,13 @@ class SearchPage(AbstractPage):
         self.__sidebar = sidebar
         self.__semantha = semantha
         self.__dummy = ""
+        self.__demo_config = demo_config
 
     def display_page(self):
-        st.write(
-            "Enter your question and I will look for a matching video position."
-        )
+        # I find that the prompt is not needed
+        # st.write(
+        #     self.__demo_config.prompt
+        # )
         # display a search input
         if self.__sidebar.get_enter_to_submit():
             search_string = self.__search_form()
