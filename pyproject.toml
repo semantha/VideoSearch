@@ -9,7 +9,7 @@ readme = "README.md"
 optional = true
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "3.10.*"
 semantha_sdk = "4.6.0"
 streamlit = "1.19.0"
 streamlit-player = "0.1.5"

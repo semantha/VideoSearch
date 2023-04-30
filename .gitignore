@@ -1,5 +1,5 @@
 .idea/
-.venv/
 secrets.toml
 .DS_Store
 __pycache__/
+video_transcription/data
