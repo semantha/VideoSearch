@@ -18,7 +18,7 @@ Use a package manager or install from source.
 
 This will download all the necessary data into the `video_transcription/data/PLAYLIST_NAME` directory. <br>
 <br>
-You can test it out with [this playlist](https://www.youtube.com/playlist?list=PL45xb3ujEhqUexNt53jb9WT2mS-uUaUrn).
+You can test it out locally with [this playlist](https://www.youtube.com/playlist?list=PL45xb3ujEhqUexNt53jb9WT2mS-uUaUrn) and by providing `--model-size tiny`.
 Take a break, watch one of the videos. I think they're funny.
 
 # Transcribe the playlist
