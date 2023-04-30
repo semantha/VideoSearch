@@ -120,7 +120,7 @@ class Semantha:
                         "content": __ref_doc.content_preview,
                         "similarity": sentence_references[idx].similarity,
                         "metadata": __ref_doc.metadata,
-                        "tags": set(__ref_doc.tags) - {"TRANSCRIPT_LEVEL", "SENTENCE_LEVEL", "CONTROL"},
+                        "tags": set(__ref_doc.tags) - {"TRANSCRIPT", "SEGMENT", "CONTROL"},
                     }
         if filter_duplicates:
             result_dict = self.__filter_duplicates(result_dict)
@@ -147,7 +147,7 @@ class Semantha:
                 similarity_threshold=threshold,
                 max_references=max_matches,
                 with_context=False,
-                tags="SENTENCE_LEVEL",  # "+".join(["SENTENCE_LEVEL"] + [tags]),
+                tags="SEGMENT+IBM Engineering Lifecycle Management",  # "+".join(["SENTENCE_LEVEL"] + [tags]),
                 mode="fingerprint"
             ).references
 
@@ -156,7 +156,7 @@ class Semantha:
                     file=_to_text_file(text),
                     max_references=sparse_filter_size,
                     with_context=False,
-                    tags="TRANSCRIPT_LEVEL",  # "+".join(["TRANSCRIPT_LEVEL"] + [tags]),
+                    tags="TRANSCRIPT+IBM Engineering Lifecycle Management",  # "+".join(["TRANSCRIPT_LEVEL"] + [tags]),
                     mode="document"
                 ).references
 
