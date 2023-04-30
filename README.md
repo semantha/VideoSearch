@@ -1,4 +1,4 @@
-# Semantha Video Search
+# Semantha VideoSearch
 ## Description
 The Semantha Video Search is a tool for semantically searching through videos. <br>
 It's a web app that allows you to search for a word or phrase and get back a list of timestamped video clips matching the query. <br>
