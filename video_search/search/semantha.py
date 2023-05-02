@@ -209,8 +209,8 @@ class Semantha:
         __filtered_sentence_references = {}
         for e in result_dict:
             entry = ast.literal_eval(result_dict[e]["metadata"])
-            if entry["id"] not in __seen_video_ids:
-                __seen_video_ids.append(entry["id"])
+            if entry["url"] not in __seen_video_ids:
+                __seen_video_ids.append(entry["url"])
                 __filtered_sentence_references[e] = result_dict[e]
             else:
                 logging.info(f"Found duplicate: {entry['id']}. Removing...")

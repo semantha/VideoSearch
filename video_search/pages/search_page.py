@@ -145,11 +145,11 @@ class SearchPage(AbstractPage):
             unsafe_allow_html=True,
         )
 
-    def __display_video(self, video_id, start, content, category, video):
+    def __display_video(self, video_url, start, content, category, video):
         if not st.session_state.control:
             st.markdown(f'💬 **The reference says:** "_{content}..._"')
         st.markdown(f"🏷️ **Tags:** _{category}_")
-        st_player(f"{str(video_id)}?#t={start}s&rel=0", height=400, key=f"{video_id}_{time.time_ns()}", config={
+        st_player(f"{str(video_url)}&rel=0", height=400, key=f"{video_url}_{time.time_ns()}", config={
             "vimeo": {
                 "playerOptions": {
                     "color": "#BE25BE",
@@ -161,8 +161,8 @@ class SearchPage(AbstractPage):
 
     def __get_result_info(self, results, i, row):
         results.at[i, "Metadata"] = ast.literal_eval(row["Metadata"])
-        video_id = results.at[i, "Metadata"]["id"]
-        start = 0 if st.session_state.control else results.at[i, "Metadata"]["start"]
+        video_id = results.at[i, "Metadata"]["url"]
+        start = 0   # if st.session_state.control else results.at[i, "Metadata"]["start"]
         content = results.at[i, "Content"]
         category = results.at[i, "Tags"]
         category = [tag for tag in category if tag not in ["base", "11"]]
