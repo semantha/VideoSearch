@@ -24,7 +24,7 @@ class Sidebar(AbstractPage):
         self.__debug = False
         self.__filter_duplicates = True
         self.__show_videos_below_each_other = True
-        self.__playlists = ["IBM Engineering Lifecycle Management"]
+        self.__playlists = ["Bosch Backöfen", "Bosch Geschirrspüler", "Bosch Kühl- und Gefriergeräte", "Bosch Waschen und Trocknen"]
 
     def get_max_matches(self):
         return self.__max_matches
@@ -63,15 +63,21 @@ class Sidebar(AbstractPage):
     def get_show_videos_below_each_other(self):
         return self.__show_videos_below_each_other
 
+    def get_playlists(self):
+        return self.__playlists
+
     def display_page(self):
         with st.sidebar:
             st.header("⚙️ Settings")
             self.__playlists = st.multiselect(
                 "Playlists",
                 options=[
-                    "IBM Engineering Lifecycle Management",
+                    "Bosch Backöfen",
+                    "Bosch Geschirrspüler",
+                    "Bosch Kühl- und Gefriergeräte",
+                    "Bosch Waschen und Trocknen",
                     ],
-                default=["IBM Engineering Lifecycle Management"],
+                default=["Bosch Backöfen", "Bosch Geschirrspüler", "Bosch Kühl- und Gefriergeräte", "Bosch Waschen und Trocknen"],
             )
 
             self.__max_matches = st.slider(

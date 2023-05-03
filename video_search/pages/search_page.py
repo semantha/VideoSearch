@@ -60,7 +60,7 @@ class SearchPage(AbstractPage):
         )
 
     def __search(self, search_string):
-        tags = "base,11"
+        tags = self.__sidebar.get_playlists()  # "base,11"
         if search_string == "":
             st.error("Bitte gib zuerst eine Frage ein!", icon="🕵🏻")
         else:

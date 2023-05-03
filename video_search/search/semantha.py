@@ -84,8 +84,9 @@ class Semantha:
                       ranking_strategy: RankingStrategy.__class__ = HybridRanking,
                       sparse_filter_size: int = 5,
                       alpha=0.7,
-                      filter_duplicates=False):
+                      filter_duplicates=True):
         logging.info(f"Search query: '{text}'")
+        logging.info(f"Filtering by the tags: '{tags}'")
         search_start = perf_counter()
         ranking_start = None
         ranking_end = None
@@ -147,7 +148,7 @@ class Semantha:
                 similarity_threshold=threshold,
                 max_references=max_matches,
                 with_context=False,
-                tags="SEGMENT+IBM Engineering Lifecycle Management",  # "+".join(["SENTENCE_LEVEL"] + [tags]),
+                tags=f"SEGMENT+{','.join(tags)}",  # "+".join(",".join(tags), ["SEGMENT"]),  # "+".join(["SEGMENT"] + tags),
                 mode="fingerprint"
             ).references
 
@@ -156,7 +157,7 @@ class Semantha:
                     file=_to_text_file(text),
                     max_references=sparse_filter_size,
                     with_context=False,
-                    tags="TRANSCRIPT+IBM Engineering Lifecycle Management",  # "+".join(["TRANSCRIPT_LEVEL"] + [tags]),
+                    tags=f"TRANSCRIPT+{','.join(tags)}",  # "+".join(["TRANSCRIPT"] + tags),
                     mode="document"
                 ).references
 
