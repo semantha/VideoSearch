@@ -66,7 +66,7 @@ if __name__ == '__main__':
                 "description": video["description"],
                 "tags": video["tags"]
             },
-            "Tags": ["TRANSCRIPT", video["playlist"]]
+            "Tags": f"TRANSCRIPT, {video['playlist']}"
         })
 
         # Followed by an entry for all args.window_size consecutive segments
@@ -80,7 +80,7 @@ if __name__ == '__main__':
                     "description": video["description"],
                     "tags": video["tags"]
                 },
-                "Tags": ["SEGMENT", video["playlist"]]
+                "Tags": f"SEGMENT, {video['playlist']}"
             })
 
     pd.DataFrame(library).to_excel(f"{os.path.join(args.playlist_directory, 'semantha_library')}.xlsx")
